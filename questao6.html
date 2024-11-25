@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 6</title>
+</head>
+<body>
+    <script>
+const tabuleiro = [
+  [' ', ' ', ' '],
+  [' ', ' ', ' '],
+  [' ', ' ', ' ']
+];
+
+let jogadorAtual = 1; // Começa com o jogador 1 (X)
+
+function exibirTabuleiro() {
+  console.log('Tabuleiro:');
+  for (let linha of tabuleiro) {
+    console.log(linha.join(' | '));
+  }
+}
+
+function fazerJogada(linha, coluna) {
+  if (tabuleiro[linha][coluna] === ' ') {
+    tabuleiro[linha][coluna] = jogadorAtual === 1 ? 'X' : 'O';
+    jogadorAtual = 3 - jogadorAtual; // Alterna entre 1 e 2
+    exibirTabuleiro();
+    const vencedor = verificarVencedor();
+    if (vencedor) {
+      console.log(`Jogador ${vencedor} venceu! Parabéns!`);
+    }
+  } else {
+    console.log('Essa posição já está ocupada. Tente outra.');
+  }
+}
+
+
+// Inicie o jogo chamando a função exibirTabuleiro()
+exibirTabuleiro();
+
+    </script>
+</body>
+</html>

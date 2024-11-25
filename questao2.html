@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questao 2</title>
+</head>
+<body>
+    <script>
+
+const produtos = [];
+var quant=10
+for (let x=0; x<quant; x++) {
+  const nomeproduto = prompt("Digite o nome do produto"+(x+1));
+  const precoproduto = parseInt(prompt("Digite o preço do produto" +(x+1)));
+  produtos.push({ nomeproduto, precoproduto });
+}
+
+const valorMaximo = parseInt(prompt("Digite um valor máximo para a pesquisa:"));
+
+const produtosValormaximo = produtos.filter((nomeproduto) => nomeproduto.precoproduto <= valorMaximo);
+
+if (produtosValormaximo.length>0) {
+  document.write("<br>Produtos com preço até o valor digitado:</br>");
+  produtosFiltrados.forEach((nomeproduto) => {
+    document.write(`<br>${produto.nomeproduto} - R$${nomeproduto.precoproduto.toFixed(2)}</br>`);
+  });
+}
+
+</script>
+</body>
+</html>

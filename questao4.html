@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 4</title>
+</head>
+<body>
+    <script>
+
+function criarMatriz(linhas, colunas) {
+    const matriz = [];
+    for (let x = 0; x < linhas; x++) {
+        const linha = [];
+        for (let y = 0; y < colunas; y++) {
+            const valor = parseInt(prompt("Digite o valor para a posição" [{x}][{y}]));
+            linha.push(valor);
+        }
+        matriz.push(linha);
+    }
+    return matriz;
+}
+
+function calcularSomaDasLinhas(matriz) {
+    const somas = [];
+    for (let x = 0; x < matriz.length; x++) {
+        const linha = matriz[x];
+        const somaLinha = linha.reduce((total, valor) => total + valor, 0);
+        somas.push(somaLinha);
+    }
+    return somas;
+}
+
+const numLinhas = parseInt(prompt("Digite o número de linhas da matriz:"));
+const numColunas = parseInt(prompt("Digite o número de colunas da matriz:"));
+
+const minhaMatriz = criarMatriz(numLinhas, numColunas);
+
+const somasPorLinha = calcularSomaDasLinhas(minhaMatriz);
+
+document.write("Matriz gerada:<br>");
+for (let x = 0; x < minhaMatriz.length; x++) {
+    document.write(minhaMatriz[x].join(" ") + "<br>");
+}
+document.write("Somas das linhas:<br>");
+for (let x = 0; x < somasPorLinha.length; x++) {
+    document.write(`Linha ${x + 1}: ${somasPorLinha[x]}<br>`);
+}
+
+</script>
+</body>
+</html>

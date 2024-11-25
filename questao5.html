@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 5</title>
+</head>
+<body>
+    <script>
+const alunos = [];
+
+for (let x = 0; x < 10; x++) {
+    const nome = prompt("Digite o nome do aluno" [x + 1]);
+    const notas = [];
+    for (let y = 0; y < 3; y++) {
+        const nota = parseFloat(prompt("Digite a nota" [y + 1]+ "de" +[nome]));
+        notas.push(nota);
+    }
+    const media = calcularMedia(notas);
+    const situacao = verificarAprovacao(media);
+    alunos.push({ nome, notas, media, situacao });
+}
+
+function calcularMedia(notas) {
+    const soma = notas.reduce((total, nota) => total + nota, 0);
+    return soma / notas.length;
+}
+
+function verificarAprovacao(media) {
+    return media >= 7.0 ? "Aprovado" : "Reprovado";
+}
+
+document.write("Relatório dos Alunos:<br>");
+for (const aluno of alunos) {
+    const cor = aluno.situacao === "Aprovado" ? "blue" : "red";
+    document.write(`<p style="color: ${cor}">${aluno.nome}: Notas ${aluno.notas.join(", ")} - Média: ${aluno.media.toFixed(2)} - Situação: ${aluno.situacao}</p>`);
+}
+
+    </script>
+</body>
+</html>
